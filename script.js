@@ -14,7 +14,7 @@ form.addEventListener('submit', function(event) {
 	const usernameInput = document.getElementById('username');
 	const usernameError = document.getElementById('usernameError');
     
-	if (usernameInput.value.length < 3) {
+	if (usernameInput.length < 3) {
 		isvalid = false;
 		messages.push(usernameError.textContent = 'Username must be at least 3 characters long.');
 		return;
@@ -41,7 +41,7 @@ form.addEventListener('submit', function(event) {
 
     const passwordInput = document.getElementById('password');
     const passwordError = document.getElementById('passwordError');
-    if (passwordInput.value.length < 8) {
+    if (passwordInput.length < 8) {
     	isValid = false;
     	messages.push(passwordError.textContent = 'Password must be at least 8 characters long.');
         return;
