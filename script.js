@@ -60,7 +60,7 @@ form.addEventListener('submit', function(event) {
     }
 
     else {
-    	document.getElementById('form-feedback').innerHTML = "Error Message : "${messages};
+    	feedbackDiv.innerHTML, "messages.join", "<br>", "#dc3545" = "Error Message : "${messages};
     }
 
     
