@@ -2,24 +2,19 @@ document.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOM fully loaded and parsed");
 });
 
-const usernameInput = document.getElementById('username');
-const emailInput = document.getElementById('email');
-const passwordInput = document.getElementById('password');
+const usernameInput = document.querySelector('#username');
+const emailInput = document.querySelector('#email');
+const passwordInput = document.querySelector('#password');
 
-var isValid = true;
-let messages = [];
-
-const feedbackDiv = document.getElementById('form-feedback');
-
-const form = document.getElementById('registration-form');
-
+const form = document.querySelector('#registration-form');
+const feedbackDiv = document.getElementById('form-feeback');
 
 const checkUsername = () => {
 
-    isValid = false;
+    let valid = false;
 
     const min = 3,
-          max = 25;
+        max = 25;
 
     const username = usernameInput.value.trim();
 
@@ -29,30 +24,29 @@ const checkUsername = () => {
         showError(usernameInput, `Username must be between ${min} and ${max} characters.`)
     } else {
         showSuccess(usernameInput);
-        isValid = true;
+        valid = true;
     }
-    return isValid;
-}
+    return valid;
+};
+
 
 const checkEmail = () => {
-    isValid = false;
-
+    let valid = false;
     const email = emailInput.value.trim();
-
     if (!isRequired(email)) {
         showError(emailInput, 'Email cannot be blank.');
     } else if (!isEmailValid(email)) {
         showError(emailInput, 'Email is not valid.')
     } else {
         showSuccess(emailInput);
-        isValid = true;
+        valid = true;
     }
-    return isValid;
-}
+    return valid;
+};
 
 const checkPassword = () => {
+    let valid = false;
 
-    isValid = false;
 
     const password = passwordInput.value.trim();
 
@@ -62,10 +56,12 @@ const checkPassword = () => {
         showError(passwordInput, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
     } else {
         showSuccess(passwordInput);
-        isValid = true;
+        valid = true;
     }
-    return isValid;
+
+    return valid;
 };
+
 
 const isEmailValid = (email) => {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -78,10 +74,10 @@ const isPasswordSecure = (password) => {
 };
 
 const isRequired = value => value === '' ? false : true;
-
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
 
-const showError = (input, messages) => {
+
+const showError = (input, message) => {
     // get the form-field element
     const formField = input.parentElement;
     // add the error class
@@ -89,8 +85,8 @@ const showError = (input, messages) => {
     formField.classList.add('error');
 
     // show the error message
-    const error = formField.querySelector('form-feedback');
-    error.textContent = messages;
+    const error = formField.querySelector('small');
+    error.textContent = message;
 };
 
 const showSuccess = (input) => {
@@ -102,18 +98,20 @@ const showSuccess = (input) => {
     formField.classList.add('success');
 
     // hide the error message
-    const error = formField.querySelector('form-feedback');
+    const error = formField.querySelector('small');
     error.textContent = '';
 }
 
 
-form.addEventListener('submit', function(event) {
-	event.preventDefault();
-    
+form.addEventListener('submit', function (e) {
+    // prevent the form from submitting
+    e.preventDefault();
+
+    // validate fields
     let isUsernameValid = checkUsername(),
         isEmailValid = checkEmail(),
-        isPasswordValid = checkPassword(),
-        
+        isPasswordValid = checkPassword();
+
     let isFormValid = isUsernameValid &&
         isEmailValid &&
         isPasswordValid;
@@ -123,6 +121,7 @@ form.addEventListener('submit', function(event) {
 
     }
 });
+
 
 const debounce = (fn, delay = 500) => {
     let timeoutId;
@@ -149,15 +148,5 @@ form.addEventListener('input', debounce(function (e) {
         case 'password':
             checkPassword();
             break;
-        case 'confirm-password':
-            checkConfirmPassword();
-            break;
     }
 }));
-	
-	
-
-
-
-
-

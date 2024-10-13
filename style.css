@@ -84,34 +84,23 @@ body {
 
 
 /* button */
-
 button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
     width: 100%;
-    box-sizing: border-box;
-    transition: background-color 0.3s ease;
+    padding: 3%;
+    background: #007bff;
+    border-bottom: 2px solid #007bff;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+    text-transform: uppercase;
 }
 
 button:hover {
-    background: #0056b3;
+    background: #0069d9;
     cursor: pointer;
 }
 
 button:focus {
     outline: none;
-}
-
-#form-feedback {
-    margin-top: 10px;
-    padding: 10px;
-    color: #d8000c;
-    background-color: #ffbaba;
-    border-radius: 4px;
-    display: none; /* Initially hide the feedback div */
 }
