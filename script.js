@@ -7,7 +7,7 @@ const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 
 const form = document.getElementById('registration-form');
-const feedbackDiv = document.getElementById('form-feedback');
+const feedbackDiv = document.getElementById('form-feedback').style.display = "block";
 
 let messages = [];
 
@@ -119,7 +119,7 @@ form.addEventListener('submit', function (e) {
 
     // submit to the server if the form is valid
     if (isFormValid) {
-
+       feedbackDiv.innerHTML, messages.join, feedbackDiv.style.color = "#dc3545" = "Registration successful!";
     }
 });
 
