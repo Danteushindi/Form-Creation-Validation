@@ -75,9 +75,14 @@ const isPasswordSecure = (password) => {
 };
 
 const isPasswordLong = (password) => {
-	const re = 8;
-	return re.test(password);
-}
+	const minlength = 8;
+	if (password.length < minlength) {
+		return false;
+	}
+	else {
+		return true;
+	}
+};
 
 const isRequired = value => value === '' ? false : true;
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
