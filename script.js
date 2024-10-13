@@ -9,9 +9,11 @@ const passwordInput = document.getElementById('password');
 const form = document.getElementById('registration-form');
 const feedbackDiv = document.getElementById('form-feedback');
 
+let messages = [];
+
 const checkUsername = () => {
 
-    let valid = false;
+    let isValid = false;
 
     const min = 3,
         max = 25;
@@ -24,14 +26,14 @@ const checkUsername = () => {
         showError(usernameInput, `Username must be between ${min} and ${max} characters.`)
     } else {
         showSuccess(usernameInput);
-        valid = true;
+        isValid = true;
     }
-    return valid;
+    return isValid;
 };
 
 
 const checkEmail = () => {
-    let valid = false;
+    let isValid = false;
     const email = emailInput.value.trim();
     if (!isRequired(email)) {
         showError(emailInput, 'Email cannot be blank.');
@@ -39,14 +41,13 @@ const checkEmail = () => {
         showError(emailInput, 'Email is not valid.')
     } else {
         showSuccess(emailInput);
-        valid = true;
+        isValid = true;
     }
-    return valid;
+    return isValid;
 };
 
 const checkPassword = () => {
-    let valid = false;
-
+    let isValid = false;
 
     const password = passwordInput.value.trim();
 
@@ -56,10 +57,10 @@ const checkPassword = () => {
         showError(passwordInput, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
     } else {
         showSuccess(passwordInput);
-        valid = true;
+        isValid = true;
     }
 
-    return valid;
+    return isValid;
 };
 
 
