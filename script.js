@@ -53,7 +53,7 @@ const checkPassword = () => {
 
     if (!isRequired(password)) {
         showError(passwordInput, 'Password cannot be blank.');
-    } else if (!isPasswordSecure(password)) {
+    } else if (!isPasswordSecure && !isPasswordLong(password)) {
         showError(passwordInput, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
     } else {
         showSuccess(passwordInput);
@@ -73,6 +73,11 @@ const isPasswordSecure = (password) => {
     const re = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
     return re.test(password);
 };
+
+const isPasswordLong = (password) => {
+	const re = 8;
+	return re.test(password);
+}
 
 const isRequired = value => value === '' ? false : true;
 const isBetween = (length, min, max) => length < min || length > max ? false : true;
