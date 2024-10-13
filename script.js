@@ -7,7 +7,7 @@ const emailInput = document.querySelector('#email');
 const passwordInput = document.querySelector('#password');
 
 const form = document.querySelector('#registration-form');
-const feedbackDiv = document.getElementById('form-feeback');
+const feedbackDiv = document.querySelector('#form-feeback');
 
 const checkUsername = () => {
 
