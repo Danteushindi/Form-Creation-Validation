@@ -9,6 +9,9 @@ const passwordInput = document.getElementById('password');
 const form = document.getElementById('registration-form');
 const feedbackDiv = document.getElementById('form-feedback');
 
+feedbackDiv.style.display = "block";
+
+
 let messages = [];
 
 const checkUsername = () => {
@@ -120,7 +123,13 @@ form.addEventListener('submit', function (e) {
 
     // submit to the server if the form is valid
     if (isFormValid) {
+       feedbackDiv.style.color = "#28a745";
        feedbackDiv.innerHTML = 'Registration successful!';
+    }
+
+    else {
+    	feedbackDiv.style.color = "#dc3545";
+    	feedbackDiv.innerHTML = `${messages}.join  "<br>"`;
     }
 });
 
