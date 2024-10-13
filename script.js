@@ -2,12 +2,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
   console.log("DOM fully loaded and parsed");
 });
 
-const usernameInput = document.querySelector('#username');
-const emailInput = document.querySelector('#email');
-const passwordInput = document.querySelector('#password');
+const usernameInput = document.getElementById('username');
+const emailInput = document.getElementById('email');
+const passwordInput = document.getElementById('password');
 
-const form = document.querySelector('#registration-form');
-const feedbackDiv = document.querySelector('#form-feeback');
+const form = document.getElementById('registration-form');
+const feedbackDiv = document.getElementById('form-feeback');
 
 const checkUsername = () => {
 
