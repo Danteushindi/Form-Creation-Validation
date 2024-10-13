@@ -7,7 +7,7 @@ const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('password');
 
 const form = document.getElementById('registration-form');
-const feedbackDiv = document.getElementById('form-feeback');
+const feedbackDiv = document.getElementById('form-feedback');
 
 const checkUsername = () => {
 
