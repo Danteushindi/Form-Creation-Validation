@@ -128,7 +128,7 @@ form.addEventListener('submit', function (e) {
     else {
     	feedbackDiv.style.display = "block";
     	feedbackDiv.style.color = "#dc3545";
-    	feedbackDiv.innerHTML = `${messages}.join  "<br>"`;
+    	feedbackDiv.innerHTML = `${messages.join()}  "<br>"`;
     }
 });
 
