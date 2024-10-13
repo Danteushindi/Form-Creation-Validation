@@ -21,9 +21,9 @@ const checkUsername = () => {
     const username = usernameInput.value.trim();
 
     if (!isRequired(username)) {
-        showError(usernameInput, 'Username cannot be blank.');
+        showError(messages.push(usernameInput, 'Username cannot be blank.'));
     } else if (!isBetween(username.length, min, max)) {
-        showError(usernameInput, `Username must be between ${min} and ${max} characters.`)
+        showError(messages.push(usernameInput, `Username must be between ${min} and ${max} characters.`))
     } else {
         showSuccess(usernameInput);
         isValid = true;
@@ -36,9 +36,9 @@ const checkEmail = () => {
     let isValid = false;
     const email = emailInput.value.trim();
     if (!isRequired(email)) {
-        showError(emailInput, 'Email cannot be blank.');
+        showError(messages.push(emailInput, 'Email cannot be blank.'));
     } else if (!isEmailValid(email)) {
-        showError(emailInput, 'Email is not valid.')
+        showError(messages.push(emailInput, 'Email is not valid.'))
     } else {
         showSuccess(emailInput);
         isValid = true;
@@ -52,9 +52,9 @@ const checkPassword = () => {
     const password = passwordInput.value.trim();
 
     if (!isRequired(password)) {
-        showError(passwordInput, 'Password cannot be blank.');
+        showError(messages.push(passwordInput, 'Password cannot be blank.'));
     } else if (!isPasswordSecure(password)) {
-        showError(passwordInput, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)');
+        showError(messages.push(passwordInput, 'Password must has at least 8 characters that include at least 1 lowercase character, 1 uppercase characters, 1 number, and 1 special character in (!@#$%^&*)'));
     } else {
         showSuccess(passwordInput);
         isValid = true;
